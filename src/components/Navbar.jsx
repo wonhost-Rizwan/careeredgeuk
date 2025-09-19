@@ -61,7 +61,7 @@ const Navbar = () => {
               className="flex items-center cursor-pointer"
             >
               <img
-                src="./career_edge1.png"
+                src="/assets/career_edge4-BEyb7f6p.jpg"
                 alt="Logo"
                 className="h-10 w-auto object-contain"
               />
