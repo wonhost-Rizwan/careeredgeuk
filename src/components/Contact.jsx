@@ -42,7 +42,7 @@ const Contact = () => {
   const contactData = {
     businessName: "Career Edge",
     email: "Careeredgeuk@gmail.com",
-    phone: "020 1234 5678 (Mon–Sat, 10am–6pm)",
+    phone: "0333 050 1073 (Mon–Sat, 10am–6pm)",
     address: ["3 Hill view Road Yetholm, Kelso, TD58PJ"],
     terms: `Career Edge provides general career coaching services by phone.
 We do not provide legal, financial, or medical advice.
