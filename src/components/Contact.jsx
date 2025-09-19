@@ -41,9 +41,9 @@ const Contact = () => {
   // JSON Data inside JSX
   const contactData = {
     businessName: "Career Edge",
-    email: "support@careeredge.co.uk",
+    email: "Careeredgeuk@gmail.com",
     phone: "020 1234 5678 (Mon–Sat, 10am–6pm)",
-    address: ["71-75 Shelton Street, Covent Garden", "London, WC2H 9JQ, United Kingdom"],
+    address: ["3 Hill view Road Yetholm, Kelso, TD58PJ"],
     terms: `Career Edge provides general career coaching services by phone.
 We do not provide legal, financial, or medical advice.
 This service is for information and motivational purposes only.
