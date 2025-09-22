@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaPhoneAlt } from "react-icons/fa";
 
 // Close Icon Component
 const CloseIcon = () => (
@@ -51,29 +52,47 @@ const HeroSection = () => {
       {/* Hero Section */}
       <section
         id="hero"
-        className="relative text-gray-900 min-h-screen flex items-center overflow-hidden"
-        style={{ backgroundColor: "#EDF1F7" }} // 👈 background color applied
+        className="relative min-h-screen flex items-center overflow-hidden text-gray-900"
+        style={{ backgroundColor: "#EDF1F7" }}
       >
-        <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-14 lg:py-24 relative z-10">
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 py-10 sm:py-14 lg:py-24">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"
+            className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16"
           >
             {/* Left Content */}
-            <div className="text-center lg:text-left space-y-5">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug tracking-tight text-transparent bg-clip-text bg-blue-700 from-teal-400 to-teal-600">
+            <div className="relative space-y-5 text-center lg:text-left">
+              {/* Heading */}
+              <h1 className="bg-gradient-to-r from-teal-400 to-teal-600 bg-clip-text text-2xl font-extrabold leading-snug tracking-tight text-transparent sm:text-3xl md:text-4xl lg:text-5xl">
                 Professional Interview Coaching by Phone
               </h1>
-              <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-md mx-auto lg:mx-0">
+
+              {/* Phone Number (unchanged style, no click action) */}
+              <motion.button
+                type="button"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-3 flex w-max items-center gap-2 rounded-lg bg-teal-600 px-4 py-2 text-sm text-white shadow-md transition-all duration-300 hover:bg-teal-700 cursor-pointer sm:text-base 
+  mx-auto lg:mx-0 lg:absolute lg:bottom-85 lg:left-205"
+              >
+                <FaPhoneAlt className="text-white" />
+                <span className="font-semibold">09X XXX XXXX</span>
+              </motion.button>
+
+
+              {/* Description */}
+              <p className="mx-auto mt-4 max-w-md text-sm text-gray-600 sm:text-base md:text-lg lg:mx-0">
                 Get expert career guidance & live interview prep over the phone,
                 designed to help you succeed in every step of your journey.
               </p>
+
+              {/* Call Charges Button */}
               <div className="flex justify-center lg:justify-start">
                 <button
                   onClick={openModal}
-                  className="mt-3 px-4 py-2 rounded-lg bg-blue-700 text-white font-medium text-xs sm:text-sm shadow-lg hover:bg-teal-700 transform hover:-translate-y-1 transition-all duration-300"
+                  className="mt-3 transform rounded-lg bg-teal-600 px-4 py-2 text-xs font-medium text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-teal-700 sm:text-sm"
                 >
                   View Call Charges
                 </button>
@@ -85,21 +104,21 @@ const HeroSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={openModal}
-              className="bg-gray-100 border border-gray-300 rounded-xl sm:rounded-2xl shadow-xl p-5 sm:p-6 w-full max-w-xs sm:max-w-sm mx-auto cursor-pointer transition-all duration-300"
+              className="mx-auto w-full max-w-xs cursor-pointer rounded-xl border border-gray-300 bg-gray-100 p-5 shadow-xl transition-all duration-300 sm:max-w-sm sm:rounded-2xl sm:p-6"
             >
-              <h3 className="text-lg sm:text-xl font-bold text-blue-700 mb-2 text-center">
+              <h3 className="mb-2 text-center text-lg font-bold text-teal-600 sm:text-xl">
                 Pay As You Go
               </h3>
-              <p className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-2">
+              <p className="mb-2 text-center text-3xl font-extrabold text-gray-900 sm:text-4xl md:text-5xl">
                 £1.55
-                <span className="text-base sm:text-lg md:text-xl font-medium text-gray-500">
+                <span className="text-base font-medium text-gray-500 sm:text-lg md:text-xl">
                   /min
                 </span>
               </p>
-              <p className="text-xs text-gray-500 text-center mb-5">
+              <p className="mb-5 text-center text-xs text-gray-500">
                 + your phone company's access charge
               </p>
-              <button className="w-full bg-blue-700 text-white font-medium py-2 sm:py-3 px-4 sm:px-5 rounded-lg shadow-md hover:bg-teal-700 transition-all duration-300 text-xs sm:text-sm">
+              <button className="w-full rounded-lg bg-teal-600 px-4 py-2 text-xs font-medium text-white shadow-md transition-all duration-300 hover:bg-teal-700 sm:py-3 sm:px-5 sm:text-sm">
                 View Call Charges
               </button>
             </motion.div>
@@ -116,53 +135,49 @@ const HeroSection = () => {
             exit="exit"
             variants={modalVariants}
             onClick={closeModal}
-            className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
           >
             <motion.div
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-lg sm:rounded-xl shadow-2xl p-5 sm:p-6 max-w-xs sm:max-w-md w-full relative border border-gray-200"
+              className="relative w-full max-w-xs rounded-lg border border-gray-200 bg-white p-5 shadow-2xl sm:max-w-md sm:rounded-xl sm:p-6"
             >
               {/* Close Button */}
               <button
                 onClick={closeModal}
-                className="absolute top-2 right-2 sm:top-3 sm:right-3 text-gray-500 hover:text-gray-700 transition-colors"
+                className="absolute right-2 top-2 text-gray-500 transition-colors hover:text-gray-700 sm:right-3 sm:top-3"
               >
                 <CloseIcon />
               </button>
 
-              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3">
+              <h2 className="mb-3 text-lg font-bold text-gray-900 sm:text-xl md:text-2xl">
                 Call Charges
               </h2>
-              <p className="bg-teal-100 text-teal-700 font-semibold p-2 rounded-md text-center mb-5 border border-teal-200 text-xs sm:text-sm">
+              <p className="mb-5 rounded-md border border-teal-200 bg-teal-100 p-2 text-center text-xs font-semibold text-teal-700 sm:text-sm">
                 Note: £1.55/min + access charge
               </p>
 
               {/* Details */}
-              <div className="space-y-2 sm:space-y-3 text-gray-700 text-xs sm:text-sm">
+              <div className="space-y-2 text-xs text-gray-700 sm:space-y-3 sm:text-sm">
                 <div className="flex items-start gap-2">
-                  <span className="text-base sm:text-lg text-teal-600">📞</span>
+                  <span className="text-base text-teal-600 sm:text-lg">📞</span>
                   <p>
                     Calls cost <b>£1.55/min</b> plus your phone company’s access
                     charge.
                   </p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-base sm:text-lg text-teal-600">🔞</span>
+                  <span className="text-base text-teal-600 sm:text-lg">🔞</span>
                   <p>
                     You must be aged <b>18 or over</b> to use this service.
                   </p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-base sm:text-lg text-teal-600">🇬🇧</span>
-                  <p>
-                    Service available to <b>UK residents only</b>.
-                  </p>
+                  <span className="text-base text-teal-600 sm:text-lg">🇬🇧</span>
+                  <p>Service available to <b>UK residents only</b>.</p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-base sm:text-lg text-teal-600">🎙️</span>
-                  <p>
-                    Calls are <b>recorded</b> for training & quality.
-                  </p>
+                  <span className="text-base text-teal-600 sm:text-lg">🎙</span>
+                  <p>Calls are <b>recorded</b> for training & quality.</p>
                 </div>
               </div>
             </motion.div>
@@ -173,4 +188,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default HeroSection;
