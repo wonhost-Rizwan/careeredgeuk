@@ -1,5 +1,5 @@
-
 import { useState, useEffect } from "react";
+import careerImg from "../assets/img/career_edge4.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +64,7 @@ const Navbar = () => {
               className="flex items-center cursor-pointer"
             >
               <img
-                src="./src/assets/img/career_edge1.png"
+                src={careerImg} // 👈 direct imported image
                 alt="Logo"
                 className="h-9 w-auto object-contain"
               />
